@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>郑俊辉❤毛一鸣</title>
+
+  <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+    }
+    .arrival-ways {
+      margin: 0;
+      padding-left: 0;
+      padding-bottom: 7.5vw;
+      overflow: scroll;
+    }
+    .bottom-bar {
+      position: fixed;
+      bottom: 1vw;
+      width: 100%;
+      display: flex;
+    }
+    .bar-container {
+      display: flex;
+      padding: 0;
+      box-shadow: 0 0 5px #000;
+      border-radius: 6px;
+      margin: 0 16px;
+      flex-grow: 1;
+      height: 6vw;
+      align-items: center;
+      background-color: #ffcc99d1;
+    }
+    .bar-item {
+      list-style: none;
+      width: calc(100%/3);
+      text-align: center;
+      font-size: 3.5vw;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .bar-item.active {
+      background-color: #ffcc338c;
+    }
+    .way-item {
+      display: none;
+    }
+    .is-show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <ul class="arrival-ways">
+    <li id="drive" class="way-item is-show">
+      <img src="./drive.jpg" alt="drive">
+    </li>
+    <li id="taxi" class="way-item">
+      <img src="./taxi.jpg" alt="taxi">
+    </li>
+    <li id="metro" class="way-item">
+      <img src="./metro.jpg" alt="metro">
+    </li>
+  </ul>
+
+  <div class="bottom-bar">
+    <ul class="bar-container">
+      <li class="bar-item active" onclick="changeActiveBar(0)">自驾</li>
+      <li class="bar-item" onclick="changeActiveBar(1)">打车</li>
+      <li class="bar-item" onclick="changeActiveBar(2)">地铁</li>
+    </ul>
+  </div>
+
+  <script>
+    function changeActiveBar (index) {
+      var list = document.getElementsByClassName('bar-item');
+      for (var i = 0 ; i < list.length; i++) {
+        list[i].classList.remove('active');
+      }
+      var ways = document.getElementsByClassName('way-item');
+      for (var i = 0 ; i < list.length; i++) {
+        ways[i].classList.remove('is-show');
+      }
+      list[index].classList.add('active')
+      ways[index].classList.add('is-show')
+    }
+  </script>
+</body>
+</html>
